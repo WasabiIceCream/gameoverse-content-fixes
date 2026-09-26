@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.gameoverse.contentfixes.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "CnbAnvilMixin",
+    "CnbYetiHideAttributeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

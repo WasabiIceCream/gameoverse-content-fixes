@@ -45,3 +45,23 @@ Minecart Chain isn't installed.
 `build/libs/gameoverse-content-fixes-<version>.jar` to `fabric 26.1/mods/`. It's
 `environment: "*"`, so it's also distributed to clients through AutoModpack's
 normal server mod sync.
+
+## Creatures and Beasts anvil recipes and Yeti Hide armor (1.0.2, 1.0.3)
+
+Creatures and Beasts 1.0.4's Fabric port has two dead hooks:
+
+- Its anvil mixin injects at the third `ItemStack.isEmpty()` in `AnvilMenu.createResult`.
+  On 26.1.2 that call sits in the rename section, after vanilla has already returned for
+  anything that isn't a repair material or a matching damageable item, so Yeti Hide onto
+  armor and the Heal Spell Book tier-up never produced a result. Found by exporting the
+  merged class (`-Dmixin.debug.export=true`). `CnbAnvilMixin` calls the mod's own
+  `CNBEvents.onAnvilChange` at `HEAD` and uses its cost, count and result.
+- `CNBEvents.onItemAttributeModifierCalculate` (the Yeti Hide armor bonus, read from the
+  `HideAmount` counter) is never called on Fabric. `CnbYetiHideAttributeMixin` calls it from
+  both `ItemStack.forEachModifier` overloads (live stats and tooltips), the same pattern as
+  `gameoverse-material-traits`.
+
+Tested in game: tier 2 Heal Spell Book, hides apply and show the extra armor line. The
+anvil charges nothing for hides on unenchanted armor; that's Simple Smithing Overhaul's
+`freeUnenchantedRepairs = true`, not this fix. Compiles against the installed Creatures and
+Beasts jar (`compileOnly`); retest when it updates.

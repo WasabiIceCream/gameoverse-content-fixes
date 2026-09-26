@@ -3,7 +3,7 @@
   "id": "gameoverse_content_fixes",
   "version": "${version}",
   "name": "Gameoverse Content Fixes",
-  "description": "Gives a source to content that was unobtainable on the Gameoverse server: four Spider Overhaul variants that never spawned, and Cluttered's wood saplings and mushrooms, and the missing item model definition for Minecart Chain's Signal Rail.",
+  "description": "Gives a source to content that was unobtainable on the Gameoverse server: four Spider Overhaul variants that never spawned, and Cluttered's wood saplings and mushrooms, and the missing item model definition for Minecart Chain's Signal Rail, and Creatures and Beasts' anvil recipes (Yeti Hide, Heal Spell Book) and Yeti Hide armor bonus, which never fired.",
   "authors": [
     "WasabiIceCream"
   ],
@@ -20,6 +20,10 @@
     "minecraft": ">=26.1",
     "java": ">=25",
     "spider-overhaul": "*",
-    "cluttered": "*"
-  }
+    "cluttered": "*",
+    "cnb": "*"
+  },
+  "mixins": [
+    "gameoverse_content_fixes.mixins.json"
+  ]
 }

@@ -16,6 +16,8 @@ dependencies {
     implementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
     // Spider Overhaul, compile-only against the exact jar the server runs.
     compileOnly(files("../../fabric 26.1/mods/SpiderOverhaul-0.0.6-Fabric-v26.1.jar"))
+    // Creatures and Beasts, for its anvil logic (CnbAnvilMixin).
+    compileOnly(files("../../fabric 26.1/mods/CreaturesAndBeasts-Fabric-1.0.4+26.1.x.jar"))
 }
 
 java {
