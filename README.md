@@ -30,6 +30,14 @@ chest table nothing references, and its trees never generate. A
 chests a 25% chance to add one random Willow, Poplar, Crabapple, Sycamore or
 Fluorescent Maple sapling, Blue Roundhead or Fly Agaric.
 
+## Signal Rail item model
+
+Minecart Chain 1.0.8 ships the Signal Rail's block states and item model but not the
+`assets/minecart_chain/items/signal_rail.json` item definition that 1.21.4+ needs, so
+the item showed as a magenta/black cube (placed rails were fine, they reuse the
+powered rail's block models). This mod's jar supplies that one file; it's harmless if
+Minecart Chain isn't installed.
+
 ## Build and deploy
 
 `./gradlew build` builds against Spider Overhaul straight from

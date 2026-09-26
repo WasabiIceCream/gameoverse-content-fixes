@@ -2,15 +2,12 @@
   "schemaVersion": 1,
   "id": "gameoverse_content_fixes",
   "version": "${version}",
-
   "name": "Gameoverse Content Fixes",
-  "description": "Gives a source to content that was unobtainable on the Gameoverse server: four Spider Overhaul variants that never spawned, and Cluttered's wood saplings and mushrooms.",
+  "description": "Gives a source to content that was unobtainable on the Gameoverse server: four Spider Overhaul variants that never spawned, and Cluttered's wood saplings and mushrooms, and the missing item model definition for Minecart Chain's Signal Rail.",
   "authors": [
     "WasabiIceCream"
   ],
-
   "license": "MIT",
-
   "environment": "*",
   "entrypoints": {
     "main": [
