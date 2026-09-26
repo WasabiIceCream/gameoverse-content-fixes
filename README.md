@@ -65,3 +65,21 @@ Tested in game: tier 2 Heal Spell Book, hides apply and show the extra armor lin
 anvil charges nothing for hides on unenchanted armor; that's Simple Smithing Overhaul's
 `freeUnenchantedRepairs = true`, not this fix. Compiles against the installed Creatures and
 Beasts jar (`compileOnly`); retest when it updates.
+
+## Invokers (1.0.4)
+
+Illager Invasion's Invoker only spawned in raids, and raids can't happen here: vanilla's
+village check (`PoiManager.isVillageCenter`) only counts villager-claimed (`IS_OCCUPIED`)
+beds and job sites, and this server has no villagers (`spawn-npcs=false`). Found by trying
+to start one with placed beds and Bad Omen; `/locate poi minecraft:home` saw the beds but
+Bad Omen never turned into Raid Omen. The Invoker is the only source of Primal Essence (the
+Imbuing Table). Three sources, all in `Invokers`:
+
+- `NaturalSpawnerInvokerMixin`: in any structure whose own monster spawn list has pillagers
+  (vanilla and Dungeons & Taverns outposts, all 32 Towns and Towers outposts, the illager
+  fort, the illusioner training grounds, Explorations' underground temple), existing
+  weights are multiplied by 40 and the Invoker is added at weight 1 (about 1 in 41 spawns).
+- Dark Forest monster spawn, weight 1, added at server start through a biome modification
+  (the entity type isn't registered yet when this mod initialises).
+- 15% chance of one Primal Essence in outpost treasure and mansion chests (vanilla and
+  Dungeons & Taverns tables). Loot rolls confirmed it drops; the spawns need an in-game look.

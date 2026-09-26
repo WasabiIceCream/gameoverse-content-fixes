@@ -30,6 +30,7 @@ public class ContentFixes implements ModInitializer {
     public void onInitialize() {
         addMissingSpiderSpawns();
         addClutteredSaplingLoot();
+        Invokers.register();
     }
 
     /**
