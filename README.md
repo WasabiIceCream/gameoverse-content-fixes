@@ -19,8 +19,9 @@ spawn:
 | Savanna Spider | `#minecraft:is_savanna` |
 | Mushroom Spider | Regions Unexplored Bioshroom Caves (Mushroom Fields stay monster-free) |
 
-The Ocean Spider is left out on purpose: it ships with no entity model or texture.
-Its drop, the Crab Leg, stays unobtainable.
+The Ocean Spider is left out on purpose: it's unfinished upstream (Spider Overhaul's
+plans list the "Spider Crab" as still to add). Summoned, it's invisible and dies within
+seconds. Its drop, the Crab Leg, stays unobtainable.
 
 ## Cluttered saplings
 
