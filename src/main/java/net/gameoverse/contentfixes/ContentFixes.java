@@ -31,6 +31,7 @@ public class ContentFixes implements ModInitializer {
         addMissingSpiderSpawns();
         addClutteredSaplingLoot();
         Invokers.register();
+        Camels.register();
     }
 
     /**

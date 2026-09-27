@@ -84,3 +84,14 @@ Imbuing Table). Three sources, all in `Invokers`:
   (the entity type isn't registered yet when this mod initialises).
 - 15% chance of one Primal Essence in outpost treasure and mansion chests (vanilla and
   Dungeons & Taverns tables). Loot rolls confirmed it drops; the spawns need an in-game look.
+
+## Camels (1.0.5)
+
+No Villages removes desert villages, and their camel pens were the only reliable source of
+camels. What's left is the natural spawn at weight 1 (rabbits are 12). This raises it to
+3 in the vanilla Desert and in Regions Unexplored's Baobab Savanna, Dry Bushland and Steppe,
+and adds camels at 3 to Regions Unexplored's Saguaro and Joshua Deserts, which had none
+(`BiomeModifications`, post-processing phase: remove the camel entry, add it back). Camels
+only spawn on `#minecraft:camels_spawnable_on` (sand), so the three grassy biomes rarely
+get one. Checked on fresh terrain: one camel in 256 new chunks around both a Saguaro Desert
+and a vanilla Desert.
