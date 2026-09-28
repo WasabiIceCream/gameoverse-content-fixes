@@ -112,3 +112,11 @@ Dynamic Difficulty 1.3.3 draws a level nameplate (and Jade line) for every mob n
 squid, bats, villagers, traders, allays) showed "Level 1". The server only syncs levels for mobs
 that have one (plus players), so `DifficultyLevelPlateMixin` (client-only) hides the plate when
 the client has no level for a non-player mob. Confirmed in game 2026-09-27.
+
+## Jade hides dropped items (1.0.8)
+
+Interactic already draws a dropped item's tooltip under the crosshair, so Jade showed the same
+information a second time. `JadeHideItems` (a `jade` entrypoint) adds `minecraft:item` to Jade's
+built-in hide list. Jade's own `hide-entities.json` can't do this for players: Jade never sends it
+from the server, and AutoModpack stops updating client configs after the first download. The
+built-in list ships in this jar and is copied back in on every Jade config reload.

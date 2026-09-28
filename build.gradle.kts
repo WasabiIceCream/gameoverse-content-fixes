@@ -22,6 +22,8 @@ dependencies {
     compileOnly(files("../../fabric 26.1/mods/fieldguide-fabric-26.1.2-1.7.11.jar"))
     // Dynamic Difficulty, for its level nameplate check (DifficultyLevelPlateMixin).
     compileOnly(files("../../fabric 26.1/mods/dynamic_difficulty-fabric-1.3.3+26.1.2.jar"))
+    // Jade, for hiding dropped items (JadeHideItems).
+    compileOnly(files("../../fabric 26.1/mods/Jade-mc26.1-Fabric-26.1.11.jar"))
 }
 
 java {
