@@ -95,3 +95,12 @@ and adds camels at 3 to Regions Unexplored's Saguaro and Joshua Deserts, which h
 only spawn on `#minecraft:camels_spawnable_on` (sand), so the three grassy biomes rarely
 get one. Checked on fresh terrain: one camel in 256 new chunks around both a Saguaro Desert
 and a vanilla Desert.
+
+## Field Guide loot cache (1.0.6)
+
+Field Guide 1.7.11 sends every entry's loot to the client on join, 100 entries per packet, and
+the client re-reads its whole cache file (`fieldguide_cache/<session>/drops.nbt`, 4.2 MB here),
+merges and rewrites it on the render thread for each packet: ~9 s of every join (JFR and file
+timestamps, 2026-09-27). The client keeps the loot in memory, and asks the server for anything
+missing, so `FieldGuideCacheMixin` (client-only) skips both the write and the read. Join went
+from ~20 s to ~15 s locally. Retest or drop when Field Guide updates.

@@ -8,6 +8,9 @@
     "CnbYetiHideAttributeMixin",
     "NaturalSpawnerInvokerMixin"
   ],
+  "client": [
+    "FieldGuideCacheMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

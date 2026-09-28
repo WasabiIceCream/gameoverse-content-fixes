@@ -18,6 +18,8 @@ dependencies {
     compileOnly(files("../../fabric 26.1/mods/SpiderOverhaul-0.0.6-Fabric-v26.1.jar"))
     // Creatures and Beasts, for its anvil logic (CnbAnvilMixin).
     compileOnly(files("../../fabric 26.1/mods/CreaturesAndBeasts-Fabric-1.0.4+26.1.x.jar"))
+    // Field Guide, for its client loot cache (FieldGuideCacheMixin).
+    compileOnly(files("../../fabric 26.1/mods/fieldguide-fabric-26.1.2-1.7.11.jar"))
 }
 
 java {
