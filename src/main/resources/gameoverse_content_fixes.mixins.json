@@ -6,7 +6,8 @@
   "mixins": [
     "CnbAnvilMixin",
     "CnbYetiHideAttributeMixin",
-    "NaturalSpawnerInvokerMixin"
+    "NaturalSpawnerInvokerMixin",
+    "QuickHarvestDropsMixin"
   ],
   "client": [
     "FieldGuideCacheMixin",

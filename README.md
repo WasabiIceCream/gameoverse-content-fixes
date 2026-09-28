@@ -120,3 +120,14 @@ information a second time. `JadeHideItems` (a `jade` entrypoint) adds `minecraft
 built-in hide list. Jade's own `hide-entities.json` can't do this for players: Jade never sends it
 from the server, and AutoModpack stops updating client configs after the first download. The
 built-in list ships in this jar and is copied back in on every Jade config reload.
+
+## Quick-harvest drops go through the block (1.0.9)
+
+Bits and Balance 2.4.0's quick harvest (right-click a mature crop, bare hand or hoe) builds its
+drops by running the block's loot table directly, skipping any `Block#getDrops` override.
+Mystical Agriculture's crops have no loot table and create essence, a second seed and Fertilized
+Essence in that override, so a quick harvest dropped nothing and still replanted.
+`QuickHarvestDropsMixin` replaces Bits and Balance's `collectDrops` with vanilla
+`Block.getDrops(state, level, pos, blockEntity, player, tool)`, which passes the same loot
+parameters through the block; loot-table crops drop as before. Re-check the method name and
+signature when Bits and Balance updates (the mixin is required, so a mismatch fails loudly).

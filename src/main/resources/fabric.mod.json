@@ -3,7 +3,7 @@
   "id": "gameoverse_content_fixes",
   "version": "${version}",
   "name": "Gameoverse Content Fixes",
-  "description": "Gives a source to content that was unobtainable on the Gameoverse server: four Spider Overhaul variants that never spawned, and Cluttered's wood saplings and mushrooms, and the missing item model definition for Minecart Chain's Signal Rail, and Creatures and Beasts' anvil recipes (Yeti Hide, Heal Spell Book) and Yeti Hide armor bonus, which never fired, and Invokers (raid-only, and there are no raids here). Also hides dropped items from Jade, since Interactic already shows their tooltip.",
+  "description": "Gives a source to content that was unobtainable on the Gameoverse server: four Spider Overhaul variants that never spawned, and Cluttered's wood saplings and mushrooms, and the missing item model definition for Minecart Chain's Signal Rail, and Creatures and Beasts' anvil recipes (Yeti Hide, Heal Spell Book) and Yeti Hide armor bonus, which never fired, and Invokers (raid-only, and there are no raids here). Also hides dropped items from Jade, since Interactic already shows their tooltip, and makes Bits and Balance's quick harvest drop what the crop itself drops (Mystical Agriculture crops dropped nothing).",
   "authors": [
     "WasabiIceCream"
   ],
@@ -25,7 +25,8 @@
     "spider-overhaul": "*",
     "cluttered": "*",
     "cnb": "*",
-    "illagerinvasion": "*"
+    "illagerinvasion": "*",
+    "bitsandbalance": "*"
   },
   "mixins": [
     "gameoverse_content_fixes.mixins.json"
