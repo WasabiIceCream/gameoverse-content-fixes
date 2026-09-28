@@ -146,3 +146,13 @@ Two more Bits and Balance quick-harvest fixes in `QuickHarvestDropsMixin`:
 Also ships `assets/gameoverse_content_fixes/lang/en_us.json`: readable text for the
 `gameoverse-farming-path` World Tier criteria ("Or: grow Tertium Essence" and so on) on
 Apotheosis's tier screen, which lists each criterion by its lang key. Confirmed in game.
+
+## Apotheosis gems and affixes from fishing and crates (1.0.11)
+
+Apotheosis only adds gems (`gem_loot_injection`) and converts gear to affixed gear
+(`affix_conversion`) when `GenContext.findPlayer` finds a player in the loot context. Vanilla
+fishing passes the bobber as the loot entity, and Go Fish crates build their context with only a
+position, so neither ever got gems or affixes. `ApotheosisLootPlayerMixin` falls back to the
+bobber's owner, then to the player opening a crate, which `GoFishCrateMixin` records while the
+crate's loot rolls (synchronously inside `CrateItem.use`). Confirmed in game: a gem and an affixed
+chestplate from 8 Golden Crates. The fishing-bobber path is the same code but not yet seen in game.

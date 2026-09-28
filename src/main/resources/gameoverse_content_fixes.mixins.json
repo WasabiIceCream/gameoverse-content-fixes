@@ -7,7 +7,9 @@
     "CnbAnvilMixin",
     "CnbYetiHideAttributeMixin",
     "NaturalSpawnerInvokerMixin",
-    "QuickHarvestDropsMixin"
+    "QuickHarvestDropsMixin",
+    "GoFishCrateMixin",
+    "ApotheosisLootPlayerMixin"
   ],
   "client": [
     "FieldGuideCacheMixin",
