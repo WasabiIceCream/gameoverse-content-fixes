@@ -156,3 +156,21 @@ position, so neither ever got gems or affixes. `ApotheosisLootPlayerMixin` falls
 bobber's owner, then to the player opening a crate, which `GoFishCrateMixin` records while the
 crate's loot rolls (synchronously inside `CrateItem.use`). Confirmed in game: a gem and an affixed
 chestplate from 8 Golden Crates. The fishing-bobber path is the same code but not yet seen in game.
+
+## AFK rules and AFK fishing (1.0.12)
+
+Built with the user so AFK fishing (XPlus Autofish, a client-only mod we ship) is safe but slower
+than fishing by hand. Works with AfkPlus, whose idle clock is vanilla's last action time.
+- `RodActivityMixin`: casting/reeling a rod and its arm swing no longer reset idle time (vanilla
+  `handleUseItem`/`handleAnimate`), and neither do chat messages or commands (`tryHandleChat`, the
+  path for chat and both command packets). Moving and, with AfkPlus `resetOnLook: true`, looking
+  still reset it. Without this an auto-fisher was never marked AFK.
+- `FishingHookAfkMixin` + `AfkFishing`: while the rod's owner is AFK, `FishingHook.catchingFish`
+  only runs every Nth tick, so bites take N times as long and AFK fishing yields about 1/N of
+  everything. N = `afkFishingSlowdown` in `config/gameoverse_content_fixes.json` (default 2, 1 = off).
+- `AfkHandlerMixin` + `AfkImmunity`: AfkPlus granted damage immunity the moment a player became AFK,
+  so `/afk` was an instant invulnerability toggle. Immunity is now refused until the player's real
+  idle time reaches AfkPlus's AFK timeout (`timeoutSeconds`, 240 s), and granted by a once-a-second
+  check when they get there while still AFK.
+Server config that goes with it: AfkPlus `resetOnLook: true`, `afkCommandCooldown: 1` (was 5, which
+swallowed a quick second `/afk`), and LuckPerms `afkplus.kick.safe` on `vouched`. All confirmed in game.

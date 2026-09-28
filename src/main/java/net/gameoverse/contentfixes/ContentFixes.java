@@ -32,6 +32,8 @@ public class ContentFixes implements ModInitializer {
         addClutteredSaplingLoot();
         Invokers.register();
         Camels.register();
+        AfkFishing.loadConfig();
+        AfkImmunity.register();
     }
 
     /**

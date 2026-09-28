@@ -28,7 +28,8 @@
     "illagerinvasion": "*",
     "bitsandbalance": "*",
     "apotheosis": "*",
-    "go-fish": "*"
+    "go-fish": "*",
+    "afkplus": "*"
   },
   "mixins": [
     "gameoverse_content_fixes.mixins.json"

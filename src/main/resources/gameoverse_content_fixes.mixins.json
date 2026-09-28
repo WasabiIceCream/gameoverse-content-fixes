@@ -9,7 +9,10 @@
     "NaturalSpawnerInvokerMixin",
     "QuickHarvestDropsMixin",
     "GoFishCrateMixin",
-    "ApotheosisLootPlayerMixin"
+    "ApotheosisLootPlayerMixin",
+    "FishingHookAfkMixin",
+    "RodActivityMixin",
+    "AfkHandlerMixin"
   ],
   "client": [
     "FieldGuideCacheMixin",

@@ -27,6 +27,8 @@ dependencies {
     // Apotheosis and Go Fish, for gems/affixes from fishing and crates (ApotheosisLootPlayerMixin, GoFishCrateMixin).
     compileOnly(files("../../fabric 26.1/mods/apotheosis-adventure-fabric-0.2.0.jar"))
     compileOnly(files("../../fabric 26.1/mods/go-fish-1.11.0+26.1.jar"))
+    // AfkPlus, for slower AFK fishing (FishingHookAfkMixin).
+    compileOnly(files("../../fabric 26.1/mods/afkplus-v1.7.17-mc26.1.2.jar"))
     // Jade, for hiding dropped items (JadeHideItems).
     compileOnly(files("../../fabric 26.1/mods/Jade-mc26.1-Fabric-26.1.11.jar"))
 }
