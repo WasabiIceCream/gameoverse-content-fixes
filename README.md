@@ -131,3 +131,18 @@ Essence in that override, so a quick harvest dropped nothing and still replanted
 `Block.getDrops(state, level, pos, blockEntity, player, tool)`, which passes the same loot
 parameters through the block; loot-table crops drop as before. Re-check the method name and
 signature when Bits and Balance updates (the mixin is required, so a mismatch fails loudly).
+
+## Quick harvest: off-hand fallthrough and the break event (1.0.10)
+
+Two more Bits and Balance quick-harvest fixes in `QuickHarvestDropsMixin`:
+- Holding right-click with bone meal or MA fertilizer, the game retries the use; once the crop
+  matured the main-hand item no longer applied, the use fell through to an empty off-hand, and
+  Bits and Balance (which treats an empty hand as a harvest) harvested it on the same press. Now
+  the off-hand only quick-harvests when the main hand is empty too.
+- It destroys the crop through the level, never as a player break, so nothing listening to
+  Fabric's `PlayerBlockBreakEvents.AFTER` saw it: Skill Tree and Skill Proficiencies XP, Heart
+  Crystal and Rumor crop drops. It now fires `AFTER` after a successful harvest.
+
+Also ships `assets/gameoverse_content_fixes/lang/en_us.json`: readable text for the
+`gameoverse-farming-path` World Tier criteria ("Or: grow Tertium Essence" and so on) on
+Apotheosis's tier screen, which lists each criterion by its lang key. Confirmed in game.
