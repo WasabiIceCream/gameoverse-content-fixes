@@ -104,3 +104,11 @@ merges and rewrites it on the render thread for each packet: ~9 s of every join 
 timestamps, 2026-09-27). The client keeps the loot in memory, and asks the server for anything
 missing, so `FieldGuideCacheMixin` (client-only) skips both the write and the read. Join went
 from ~20 s to ~15 s locally. Retest or drop when Field Guide updates.
+
+## Dynamic Difficulty level plates (1.0.7)
+
+Dynamic Difficulty 1.3.3 draws a level nameplate (and Jade line) for every mob not in the client's
+`hiddenLevelEntities` list, so mobs with no level (cows, and since difficulty-hearts 1.5.2 fish,
+squid, bats, villagers, traders, allays) showed "Level 1". The server only syncs levels for mobs
+that have one (plus players), so `DifficultyLevelPlateMixin` (client-only) hides the plate when
+the client has no level for a non-player mob. Confirmed in game 2026-09-27.

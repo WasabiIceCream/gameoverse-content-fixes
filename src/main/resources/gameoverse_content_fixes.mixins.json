@@ -9,7 +9,8 @@
     "NaturalSpawnerInvokerMixin"
   ],
   "client": [
-    "FieldGuideCacheMixin"
+    "FieldGuideCacheMixin",
+    "DifficultyLevelPlateMixin"
   ],
   "injectors": {
     "defaultRequire": 1

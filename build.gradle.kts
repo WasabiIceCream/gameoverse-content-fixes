@@ -20,6 +20,8 @@ dependencies {
     compileOnly(files("../../fabric 26.1/mods/CreaturesAndBeasts-Fabric-1.0.4+26.1.x.jar"))
     // Field Guide, for its client loot cache (FieldGuideCacheMixin).
     compileOnly(files("../../fabric 26.1/mods/fieldguide-fabric-26.1.2-1.7.11.jar"))
+    // Dynamic Difficulty, for its level nameplate check (DifficultyLevelPlateMixin).
+    compileOnly(files("../../fabric 26.1/mods/dynamic_difficulty-fabric-1.3.3+26.1.2.jar"))
 }
 
 java {
