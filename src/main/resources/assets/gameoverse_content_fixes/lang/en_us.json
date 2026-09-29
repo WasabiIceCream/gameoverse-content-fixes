@@ -2,7 +2,10 @@
   "advancements.apotheosis.progression.ascent.criteria.grow_tertium": "Or: grow Tertium Essence",
   "advancements.apotheosis.progression.ascent.criteria.fish_treasure": "Or: fish up a Nautilus Shell",
   "advancements.apotheosis.progression.summit.criteria.obtain_nether_star": "Or: obtain a Nether Star",
-  "advancements.apotheosis.progression.pinnacle.criteria.enter_the_end": "Or: enter the End, and then:",
-  "advancements.apotheosis.progression.pinnacle.criteria.master_infusion_crystal": "craft a Master Infusion Crystal",
-  "advancements.apotheosis.progression.pinnacle.criteria.fish_end_crystal": "or fish up an End Crystal"
+  "advancements.apotheosis.progression.pinnacle.criteria.enter_the_end": "Enter the End",
+  "advancements.apotheosis.progression.pinnacle.criteria.master_infusion_crystal": "Or: craft a Master Infusion Crystal",
+  "advancements.apotheosis.progression.pinnacle.criteria.fish_end_crystal": "Or: fish up an End Crystal",
+  "advancements.apotheosis.progression.ascent.criteria.kill_level_20": "Slay a level 20+ monster",
+  "advancements.apotheosis.progression.summit.criteria.kill_level_40": "Slay a level 40+ monster",
+  "advancements.apotheosis.progression.pinnacle.criteria.kill_level_60": "Slay a level 60+ monster"
 }
