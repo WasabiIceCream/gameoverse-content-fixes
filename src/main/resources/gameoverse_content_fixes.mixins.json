@@ -16,7 +16,8 @@
   ],
   "client": [
     "FieldGuideCacheMixin",
-    "DifficultyLevelPlateMixin"
+    "DifficultyLevelPlateMixin",
+    "ShadowPassOutlineMixin"
   ],
   "injectors": {
     "defaultRequire": 1

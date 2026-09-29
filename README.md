@@ -184,3 +184,13 @@ jar carries the file at the path it asks for (same one string). Upstream fixed t
 `sakura-ryoko/corelib` commit `4d32b511` (2026-09-22) after the 0.3.0 release; drop the file once
 AfkPlus bundles a newer Core Lib API. Field Guide stays on 1.7.11: 1.19.0 clears the main depth
 buffer after the level renders (`AfterLevelOverlay`), which breaks Eclipse (sky over terrain).
+
+## No glowing outlines in Iris's shadow pass (1.0.14)
+
+Iris's shadow pass extracts entity render states itself, glowing outlines included, and the outline
+vertices written there are never drawn or flushed: they pile up frame after frame until
+`BufferBuilder` throws "Trying to write too many vertices (>16777215)". Better Item Despawn makes
+every dropped item within 48 blocks glow, so standing near about 30 drops with a shader crashed the
+client in under a minute (found 2026-09-28 testing dragon loot). `ShadowPassOutlineMixin` makes
+`shouldEntityAppearGlowing` report false while `IrisApi.isRenderingShadowPass()` is true; the normal
+pass still draws the glow. Iris is only touched when it's loaded (`IrisShadowPass`).
