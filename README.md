@@ -182,5 +182,5 @@ its classloader but ships the file at `assets/corelib/lang/`, so every boot logg
 (`i18nLang#load: Error; file not found`). Fabric's classloader searches every mod jar, so this
 jar carries the file at the path it asks for (same one string). Upstream fixed the path in
 `sakura-ryoko/corelib` commit `4d32b511` (2026-09-22) after the 0.3.0 release; drop the file once
-AfkPlus bundles a newer Core Lib API. Also: builds against Field Guide 1.19.0 now (the cache
-mixin's two targets are unchanged).
+AfkPlus bundles a newer Core Lib API. Field Guide stays on 1.7.11: 1.19.0 clears the main depth
+buffer after the level renders (`AfterLevelOverlay`), which breaks Eclipse (sky over terrain).
