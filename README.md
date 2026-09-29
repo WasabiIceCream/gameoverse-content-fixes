@@ -174,3 +174,13 @@ than fishing by hand. Works with AfkPlus, whose idle clock is vanilla's last act
   check when they get there while still AFK.
 Server config that goes with it: AfkPlus `resetOnLook: true`, `afkCommandCooldown: 1` (was 5, which
 swallowed a quick second `/afk`), and LuckPerms `afkplus.kick.safe` on `vouched`. All confirmed in game.
+
+## core-lib-api language file (1.0.13)
+
+AfkPlus bundles Core Lib API 0.3.0, which loads `/assets/core-lib-api/lang/en_us.json` through
+its classloader but ships the file at `assets/corelib/lang/`, so every boot logged two ERRORs
+(`i18nLang#load: Error; file not found`). Fabric's classloader searches every mod jar, so this
+jar carries the file at the path it asks for (same one string). Upstream fixed the path in
+`sakura-ryoko/corelib` commit `4d32b511` (2026-09-22) after the 0.3.0 release; drop the file once
+AfkPlus bundles a newer Core Lib API. Also: builds against Field Guide 1.19.0 now (the cache
+mixin's two targets are unchanged).
