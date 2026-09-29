@@ -25,8 +25,9 @@ dependencies {
     // Bits and Balance, for its quick-harvest drops (QuickHarvestDropsMixin).
     compileOnly(files("../../fabric 26.1/mods/bitsandbalance-fabric-26.1-2.4.0.jar"))
     // Apotheosis and Go Fish, for gems/affixes from fishing and crates (ApotheosisLootPlayerMixin, GoFishCrateMixin).
-    compileOnly(files("../../fabric 26.1/mods/apotheosis-adventure-fabric-0.2.1.jar"))
+    compileOnly(files("../../fabric 26.1/mods/apotheosis-adventure-fabric-0.3.2.jar"))
     compileOnly(files("../../fabric 26.1/mods/go-fish-1.11.0+26.1.jar"))
+    compileOnly(files("../../fabric 26.1/mods/skill_tree-fabric-1.6.1+26.1.2.jar"))
     // AfkPlus, for slower AFK fishing (FishingHookAfkMixin).
     compileOnly(files("../../fabric 26.1/mods/afkplus-v1.7.17-mc26.1.2.jar"))
     // Jade, for hiding dropped items (JadeHideItems).

@@ -12,7 +12,8 @@
     "ApotheosisLootPlayerMixin",
     "FishingHookAfkMixin",
     "RodActivityMixin",
-    "AfkHandlerMixin"
+    "AfkHandlerMixin",
+    "SkillTreeDescriptionMixin"
   ],
   "client": [
     "FieldGuideCacheMixin",
