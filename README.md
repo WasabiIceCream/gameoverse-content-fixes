@@ -216,3 +216,25 @@ times (title, "Applies...", "Source:", potion contents), so its tooltip repeated
 `TooltipInsightsOnceMixin` (client, `@Pseudo`, `require = 0`) wraps the handler's key map so `containsKey` answers yes
 only for the last line naming each effect; that line gets the description (and Effect Insights' value formatting).
 Check this still applies when Effect Insights updates.
+
+## Mimics in any structure chest (1.0.20)
+
+Artifacts 15.1.3's Mimic only generated at its underground campsites, so a campsite told you to expect one. `Mimics`
+(hooked at the end of `ChunkGenerator.applyBiomeDecoration`, `ChunkGeneratorMimicMixin`) turns a single
+`minecraft:chest` with a loot table into a dormant Mimic facing the same way, at `mimicChestChance` in
+`config/gameoverse_content_fixes.json` (default 0.05). Skipped: double chests, Artifacts' own tables (campsites roll
+their own), and chests with anything solid above (buried treasure). The roll is seeded by world seed and position. The
+Mimic keeps the chest's loot table in a persistent Fabric attachment and drops that loot on death, rolled with the
+killer as the chest opener, on top of its own artifact.
+
+The tell (`MimicSkewMixin`, `MimicControllerMixin`): every dormant Mimic, campsite ones included, sits 20-35 degrees
+off its facing, fixed per Mimic from its UUID. A placed chest is always square.
+
+`CampsiteMimicReasonMixin`: Respawning Animals cancels every mob that joins with the `CHUNK_GENERATION` spawn reason
+(its "world_gen" animals, `AnimalSpawningHandler.onEntityJoin`), and logs "Mismatched spawn type" while moving the
+entity type to the CREATURE category. Artifacts spawns campsite Mimics with that reason, so campsites never had a
+Mimic on this server. Both campsite Mimics and ours now use `STRUCTURE` (its "scripted" reason, not touched).
+
+Tested locally at chance 1.0 (2026-09-30): 15 Mimics in 7x7 fresh chunks, all off square, no "Mismatched spawn"
+warning; killing a trial chamber supplies Mimic dropped an artifact plus the supplies loot. Re-check `placeChest`
+and the Mimic's `setFacing`/`readAdditionalSaveData` when Artifacts updates (the mixins are required).

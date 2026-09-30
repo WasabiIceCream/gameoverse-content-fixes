@@ -36,6 +36,8 @@ dependencies {
     compileOnly(files("../../fabric 26.1/automodpack/host-modpack/main/mods/iris-fabric-1.11.3+mc26.1.2.jar"))
     // Sneaky Curses, for curse descriptions wrapped in a literal line (SneakyCurseDescriptionMixin).
     compileOnly(files("../../fabric 26.1/mods/SneakyCurses-v26.1.2-mc26.1.x-Fabric.jar"))
+    // Artifacts, for its Mimic (Mimics, MimicSkewMixin).
+    compileOnly(files("../../fabric 26.1/mods/artifacts-fabric-15.1.3.jar"))
 }
 
 java {

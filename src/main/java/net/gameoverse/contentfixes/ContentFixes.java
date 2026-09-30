@@ -34,6 +34,7 @@ public class ContentFixes implements ModInitializer {
         Camels.register();
         AfkFishing.loadConfig();
         AfkImmunity.register();
+        Mimics.register();
     }
 
     /**

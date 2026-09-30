@@ -13,7 +13,11 @@
     "FishingHookAfkMixin",
     "RodActivityMixin",
     "AfkHandlerMixin",
-    "SkillTreeDescriptionMixin"
+    "SkillTreeDescriptionMixin",
+    "ChunkGeneratorMimicMixin",
+    "MimicSkewMixin",
+    "MimicControllerMixin",
+    "CampsiteMimicReasonMixin"
   ],
   "client": [
     "FieldGuideCacheMixin",
