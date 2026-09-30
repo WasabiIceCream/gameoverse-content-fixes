@@ -18,7 +18,8 @@
   "client": [
     "FieldGuideCacheMixin",
     "DifficultyLevelPlateMixin",
-    "ShadowPassOutlineMixin"
+    "ShadowPassOutlineMixin",
+    "SneakyCurseDescriptionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

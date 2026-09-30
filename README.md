@@ -194,3 +194,16 @@ every dropped item within 48 blocks glow, so standing near about 30 drops with a
 client in under a minute (found 2026-09-28 testing dragon loot). `ShadowPassOutlineMixin` makes
 `shouldEntityAppearGlowing` report false while `IrisApi.isRenderingShadowPass()` is true; the normal
 pass still draws the glow. Iris is only touched when it's loaded (`IrisShadowPass`).
+
+## Hidden curses keep their descriptions hidden (1.0.18)
+
+Sneaky Curses hides an unrevealed curse in its tooltip handler (`ItemTooltipHandler.onItemTooltip`)
+by reading each line's own contents: a translatable `enchantment.<ns>.<path>` key becomes rune
+text, a longer key (`enchantment.<ns>.<path>.desc`) is removed. Dynamic Tooltips and Item Tooltips
+build their description lines as `Component.literal("").append(...)`, so the key sits in a child
+and a hidden curse's description still showed. `SneakyCurseDescriptionMixin` wraps that
+`getContents()` call: when a line's own contents aren't an `enchantment.` key, it hands Sneaky
+Curses the first child (up to three levels deep) whose key starts with `enchantment.` and has more
+than three dot parts, so the wrapped description is removed like a plain one. Name lines are
+unaffected (only description keys are substituted). Client mixin; Sneaky Curses is now a
+dependency. Found 2026-09-30.

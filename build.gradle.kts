@@ -34,6 +34,8 @@ dependencies {
     compileOnly(files("../../fabric 26.1/mods/Jade-mc26.1-Fabric-26.1.11.jar"))
     // Iris (client-only mod set), for its shadow-pass flag (ShadowPassOutlineMixin).
     compileOnly(files("../../fabric 26.1/automodpack/host-modpack/main/mods/iris-fabric-1.11.3+mc26.1.2.jar"))
+    // Sneaky Curses, for curse descriptions wrapped in a literal line (SneakyCurseDescriptionMixin).
+    compileOnly(files("../../fabric 26.1/mods/SneakyCurses-v26.1.2-mc26.1.x-Fabric.jar"))
 }
 
 java {

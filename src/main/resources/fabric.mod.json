@@ -29,7 +29,8 @@
     "bitsandbalance": "*",
     "apotheosis": "*",
     "go-fish": "*",
-    "afkplus": "*"
+    "afkplus": "*",
+    "sneakycurses": "*"
   },
   "mixins": [
     "gameoverse_content_fixes.mixins.json"
