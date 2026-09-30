@@ -19,7 +19,8 @@
     "FieldGuideCacheMixin",
     "DifficultyLevelPlateMixin",
     "ShadowPassOutlineMixin",
-    "SneakyCurseDescriptionMixin"
+    "SneakyCurseDescriptionMixin",
+    "TooltipInsightsOnceMixin"
   ],
   "injectors": {
     "defaultRequire": 1

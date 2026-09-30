@@ -207,3 +207,12 @@ Curses the first child (up to three levels deep) whose key starts with `enchantm
 than three dot parts, so the wrapped description is removed like a plain one. Name lines are
 unaffected (only description keys are substituted). Client mixin; Sneaky Curses is now a
 dependency. Found 2026-09-30.
+
+## One effect description per tooltip (1.0.19)
+
+Effect Insights (through its bundled Tooltip Insights library, `TooltipDescriptionsHandler.modifyTooltip`) adds an
+effect's description after every tooltip line that names the effect. An Apotheosis Potion Charm names its effect four
+times (title, "Applies...", "Source:", potion contents), so its tooltip repeated the same description four times.
+`TooltipInsightsOnceMixin` (client, `@Pseudo`, `require = 0`) wraps the handler's key map so `containsKey` answers yes
+only for the last line naming each effect; that line gets the description (and Effect Insights' value formatting).
+Check this still applies when Effect Insights updates.
