@@ -225,7 +225,9 @@ Artifacts 15.1.3's Mimic only generated at its underground campsites, so a camps
 `config/gameoverse_content_fixes.json` (default 0.05). Skipped: double chests, Artifacts' own tables (campsites roll
 their own), and chests with anything solid above (buried treasure). The roll is seeded by world seed and position. The
 Mimic keeps the chest's loot table in a persistent Fabric attachment and drops that loot on death, rolled with the
-killer as the chest opener, on top of its own artifact.
+killer as the chest opener. Since 1.0.21 such a Mimic drops no artifact of its own (`LootTableEvents.MODIFY_DROPS`
+clears `artifacts:entities/mimic` when the Mimic carries a chest table): the chest's loot already has Artifacts' usual
+chest chance (`artifactRarity`), so artifacts stay as rare as before. Campsite Mimics keep the guaranteed artifact.
 
 The tell (`MimicSkewMixin`, `MimicControllerMixin`): every dormant Mimic, campsite ones included, sits 20-35 degrees
 off its facing, fixed per Mimic from its UUID. A placed chest is always square.

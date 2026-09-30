@@ -14,6 +14,7 @@ import com.google.gson.JsonObject;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -41,7 +42,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 /**
  * Artifacts' Mimic only generated at its own campsites, so a campsite told you to expect one. Now any single loot
  * chest a structure generates has a {@code mimicChestChance} (config/gameoverse_content_fixes.json) to be a dormant
- * Mimic instead, holding that chest's loot table: killed, it drops the chest's loot as well as its own artifact.
+ * Mimic instead, holding that chest's loot table: killed, it drops the chest's loot in place of its own guaranteed artifact.
  * The tell: a dormant Mimic sits 20-35 degrees off square (see {@link #skew}), which a placed chest never does.
  */
 public final class Mimics {
@@ -54,11 +55,22 @@ public final class Mimics {
         Identifier.fromNamespaceAndPath("gameoverse_content_fixes", "mimic_chest_loot"),
         builder -> builder.persistent(ResourceKey.codec(Registries.LOOT_TABLE)));
 
+    private static final ResourceKey<LootTable> MIMIC_LOOT = ResourceKey.create(Registries.LOOT_TABLE,
+        Identifier.fromNamespaceAndPath("artifacts", "entities/mimic"));
+
     private Mimics() {
     }
 
     static void register() {
         loadConfig();
+        // A chest Mimic drops the chest's loot (which already carries Artifacts' usual chest chance) instead of the
+        // Mimic's guaranteed artifact, so artifacts stay as rare as before. Campsite Mimics keep theirs.
+        LootTableEvents.MODIFY_DROPS.register((table, context, drops) -> {
+            if (table.is(MIMIC_LOOT) && context.getOptionalParameter(LootContextParams.THIS_ENTITY) instanceof MimicEntity mimic
+                && mimic.hasAttached(CHEST_LOOT)) {
+                drops.clear();
+            }
+        });
         ServerLivingEntityEvents.AFTER_DEATH.register((entity, source) -> {
             ResourceKey<LootTable> key = entity.getAttached(CHEST_LOOT);
             if (key == null || !(entity.level() instanceof ServerLevel level)) {
