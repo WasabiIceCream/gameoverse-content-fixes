@@ -38,6 +38,8 @@ dependencies {
     compileOnly(files("../../fabric 26.1/mods/SneakyCurses-v26.1.2-mc26.1.x-Fabric.jar"))
     // Artifacts, for its Mimic (Mimics, MimicSkewMixin).
     compileOnly(files("../../fabric 26.1/mods/artifacts-fabric-15.1.3.jar"))
+    // Bucketry, for its bucket classes (BucketryBucketRemainderMixin, BucketryMilkRemainderMixin).
+    compileOnly(files("../../fabric 26.1/mods/buckets_update-fabric-1.2.0+mc26.1.jar"))
 }
 
 java {

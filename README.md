@@ -240,3 +240,14 @@ Mimic on this server. Both campsite Mimics and ours now use `STRUCTURE` (its "sc
 Tested locally at chance 1.0 (2026-09-30): 15 Mimics in 7x7 fresh chunks, all off square, no "Mismatched spawn"
 warning; killing a trial chamber supplies Mimic dropped an artifact plus the supplies loot. Re-check `placeChest`
 and the Mimic's `setFacing`/`readAdditionalSaveData` when Artifacts updates (the mixins are required).
+
+## Bucketry remainders (1.0.22)
+
+`BucketryBucketRemainderMixin` and `BucketryMilkRemainderMixin` give Bucketry's (`buckets_update`) filled buckets a
+per-stack `FabricItem.getCraftingRemainder(ItemStack)`. Its water and lava buckets leave a fresh empty bucket through
+`craftRemainder` (a worn wooden or bamboo bucket came back repaired), and its milk buckets had no remainder at all, so a
+cake ate a gold milk bucket. Both now leave the matching empty bucket with the filled one's `DAMAGE` kept, as Bucketry
+itself does when the bucket is emptied by hand (`toEmpty`/`copyState`). Pairs with `gameoverse-bucket-variants`, which
+lets recipes accept these buckets. A recipe type that reads `Item.getCraftingRemainder()` without the stack still gets
+Bucketry's own remainder. Re-check `BaseBucketItem.isEmpty/toEmpty` and `BaseMilkBucketItem.emptyCounterpart/copyState`
+when Bucketry updates (the mixins are required).
