@@ -251,3 +251,17 @@ itself does when the bucket is emptied by hand (`toEmpty`/`copyState`). Pairs wi
 lets recipes accept these buckets. A recipe type that reads `Item.getCraftingRemainder()` without the stack still gets
 Bucketry's own remainder. Re-check `BaseBucketItem.isEmpty/toEmpty` and `BaseMilkBucketItem.emptyCounterpart/copyState`
 when Bucketry updates (the mixins are required).
+
+## Loot containers can't be destroyed (1.0.23-1.0.24)
+
+SlashLoot gives each player their own loot by leaving the loot table on a world-generated container (its own test for
+which containers it handles: a `RandomizableContainer` with a loot table). Destroying one ended that for everyone,
+like breaking a dungeon spawner. `LootContainerProtection`: survival players can't break such a block
+(`PlayerBlockBreakEvents.BEFORE`, overlay message); `ExplosionLootContainerMixin` drops those positions from
+`ServerExplosion.interactWithBlocks`' list (not `calculateExplodedPositions`' return: Lithium replaces that method from
+its head, so a RETURN hook never ran); `VehicleLootContainerMixin` cancels `VehicleEntity.hurtServer` for chest
+minecarts and chest boats (`ContainerEntity`) with a loot table. Creative players and damage that bypasses
+invulnerability (`/kill`, the void) still destroy them. Player-placed containers never have a loot table. Covers
+dungeon chests too (a world-gen feature, not a structure, so an Unbreakables structure rule would miss them). Tested
+over RCON with TNT: loot chest, barrel, minecart and boat survive, plain ones are destroyed. Re-check the mixin
+targets when Lithium or SlashLoot update.
