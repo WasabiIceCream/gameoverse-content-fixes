@@ -19,7 +19,9 @@
     "MimicControllerMixin",
     "CampsiteMimicReasonMixin",
     "BucketryBucketRemainderMixin",
-    "BucketryMilkRemainderMixin"
+    "BucketryMilkRemainderMixin",
+    "ExplosionLootContainerMixin",
+    "VehicleLootContainerMixin"
   ],
   "client": [
     "FieldGuideCacheMixin",
