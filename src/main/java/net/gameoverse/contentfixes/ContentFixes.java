@@ -35,6 +35,7 @@ public class ContentFixes implements ModInitializer {
         AfkFishing.loadConfig();
         AfkImmunity.register();
         Mimics.register();
+        LootContainerProtection.register();
     }
 
     /**
