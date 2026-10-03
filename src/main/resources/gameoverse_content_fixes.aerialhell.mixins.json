@@ -4,9 +4,10 @@
   "package": "net.gameoverse.contentfixes.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "AerialHellBiomeShifterMixin"
+    "AerialHellBiomeShifterMixin",
+    "AerialHellPortalMixin"
   ],
   "injectors": {
-    "defaultRequire": 0
+    "defaultRequire": 1
   }
 }
