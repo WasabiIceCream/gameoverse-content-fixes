@@ -37,6 +37,7 @@ public class ContentFixes implements ModInitializer {
         Mimics.register();
         LootContainerProtection.register();
         HotbarSlotScore.register();
+        NoVillagers.register();
     }
 
     /**

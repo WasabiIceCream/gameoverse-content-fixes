@@ -283,3 +283,16 @@ auto-fisher never went AFK and kept full fishing speed (see "AFK rules and AFK f
 mixins close the in-game ways to change it: the settings key (V) is never registered, so it isn't in Controls, and
 Mod Menu's Configure button gets back the screen it came from. Recheck both targets (`FabricModAutofish.onInitializeClient`'s
 `KeyMappingHelper.registerKeyMapping` call, `AutofishScreenBuilder.buildScreen`) when Autofish updates.
+
+## No villagers, zombie villagers included (1.0.27)
+
+The server's rule is no villagers at all (villages don't generate, `spawn-npcs=false`, Wandering Traders off), and a
+zombie villager counts because it can be cured. Two gaps remained, found after a zombie villager spawned in testing:
+every biome's monster list carries the zombie villager (vanilla's 5% zombie variant), and over 20 mods' structures
+place villagers or zombie villagers directly (a scan of every jar's `.nbt` files: Hopo's mineshaft prison rooms, Moog's
+Mineshafts' workers, archaeology camps, ships, outpost captives, The Darkness Will Find You's ancient village, ...).
+`NoVillagers` removes the zombie villager from every biome's spawns (Fabric `BiomeModifications`, REMOVALS phase) and
+refuses any `minecraft:villager` or `minecraft:zombie_villager` in Fabric's `ServerEntityEvents.ALLOW_LOAD`, which
+covers spawns, structure placement, conversions, commands and entities loading with old chunks; each one is logged
+("Removed a minecraft:villager at ..."). Tested: summons, a Hopo prison room and a Moog's villager template placed with
+`/place template` all came up empty. Modded villager-like mobs are untouched.
