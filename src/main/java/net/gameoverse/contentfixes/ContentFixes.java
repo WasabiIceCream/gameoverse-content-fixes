@@ -36,6 +36,7 @@ public class ContentFixes implements ModInitializer {
         AfkImmunity.register();
         Mimics.register();
         LootContainerProtection.register();
+        HotbarSlotScore.register();
     }
 
     /**

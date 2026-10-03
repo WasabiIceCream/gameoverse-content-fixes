@@ -265,3 +265,10 @@ invulnerability (`/kill`, the void) still destroy them. Player-placed containers
 dungeon chests too (a world-gen feature, not a structure, so an Unbreakables structure rule would miss them). Tested
 over RCON with TNT: loot chest, barrel, minecart and boat survive, plain ones are destroyed. Re-check the mixin
 targets when Lithium or SlashLoot update.
+
+## Hotbar slot score for the WASD library (1.0.25)
+
+`HotbarSlotScore` sets the `w.hotbar_slot` score of every player to their selected hotbar slot at the end of each
+server tick (only when it changes, and only while that objective exists). WASD's library (in `gameoverse-moar-loot`)
+read it every tick with `data get entity @s SelectedItemSlot`, a full player NBT serialization costing about 1.1 ms per
+player per tick here; the Gameoverse build of that data pack drops the read. Deploy the two together.
