@@ -28,7 +28,9 @@
     "DifficultyLevelPlateMixin",
     "ShadowPassOutlineMixin",
     "SneakyCurseDescriptionMixin",
-    "TooltipInsightsOnceMixin"
+    "TooltipInsightsOnceMixin",
+    "AutofishNoKeyMixin",
+    "AutofishNoScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

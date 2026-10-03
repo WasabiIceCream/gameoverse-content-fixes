@@ -272,3 +272,14 @@ targets when Lithium or SlashLoot update.
 server tick (only when it changes, and only while that objective exists). WASD's library (in `gameoverse-moar-loot`)
 read it every tick with `data get entity @s SelectedItemSlot`, a full player NBT serialization costing about 1.1 ms per
 player per tick here; the Gameoverse build of that data pack drops the read. Deploy the two together.
+
+## XPlus Autofish settings are the server's (1.0.26)
+
+XPlus Autofish (client-only) lets each player tune it: recast delays, multiple rods, and Auto Turn View, which turns
+the camera after each catch. AfkPlus counts looking around as activity (`resetOnLook`), so with Auto Turn View on an
+auto-fisher never went AFK and kept full fishing speed (see "AFK fishing" above). Its config,
+`config/autofish-client.toml`, is now force-synced by AutoModpack (`!/config/autofish-client.toml` in
+`allowEditsInFiles`; source of truth `client-config/autofish-client.toml`, Autofish 2.0.0's defaults), and two client
+mixins close the in-game ways to change it: the settings key (V) is never registered, so it isn't in Controls, and
+Mod Menu's Configure button gets back the screen it came from. Recheck both targets (`FabricModAutofish.onInitializeClient`'s
+`KeyMappingHelper.registerKeyMapping` call, `AutofishScreenBuilder.buildScreen`) when Autofish updates.
