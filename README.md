@@ -277,7 +277,7 @@ player per tick here; the Gameoverse build of that data pack drops the read. Dep
 
 XPlus Autofish (client-only) lets each player tune it: recast delays, multiple rods, and Auto Turn View, which turns
 the camera after each catch. AfkPlus counts looking around as activity (`resetOnLook`), so with Auto Turn View on an
-auto-fisher never went AFK and kept full fishing speed (see "AFK fishing" above). Its config,
+auto-fisher never went AFK and kept full fishing speed (see "AFK rules and AFK fishing" above). Its config,
 `config/autofish-client.toml`, is now force-synced by AutoModpack (`!/config/autofish-client.toml` in
 `allowEditsInFiles`; source of truth `client-config/autofish-client.toml`, Autofish 2.0.0's defaults), and two client
 mixins close the in-game ways to change it: the settings key (V) is never registered, so it isn't in Controls, and
