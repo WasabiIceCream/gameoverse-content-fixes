@@ -36,6 +36,7 @@
   },
   "mixins": [
     "gameoverse_content_fixes.mixins.json",
-    "gameoverse_content_fixes.aerialhell.mixins.json"
+    "gameoverse_content_fixes.aerialhell.mixins.json",
+    "gameoverse_content_fixes.friendsandfoes.mixins.json"
   ]
 }

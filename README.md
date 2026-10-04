@@ -296,3 +296,15 @@ refuses any `minecraft:villager` or `minecraft:zombie_villager` in Fabric's `Ser
 covers spawns, structure placement, conversions, commands and entities loading with old chunks; each one is logged
 ("Removed a minecraft:villager at ..."). Tested: summons, a Hopo prison room and a Moog's villager template placed with
 `/place template` all came up empty. Modded villager-like mobs are untouched.
+
+## Friends and Foes Citadels generate on our Nether terrain (1.0.30)
+
+Friends and Foes only places its Citadel (the Wildfire's home) where 25 columns over 32x32 blocks are all open (air or
+lava) at every 5th block for 53 blocks above the start (`CitadelStructure.extraSpawningChecks`). Incendium and Regions
+Unexplored's Nether passes that at about 3.5% of candidate spots (measured over 10,800 candidates in fresh terrain), so
+the 2026-10-03 structure audit found no Citadel in about 15,000 Nether chunks. `FriendsAndFoesCitadelMixin` replaces the
+check with the same samples, accepting 90% open (about 15% of candidates); the structure overwrites the little rock
+left inside it. Tested on a scratch copy of the world: forced placements went from 0 of 31 to 12 of 25, and one Citadel
+generated naturally in 8,192 fresh Nether chunks (about one per 7,600 expected with Sparse Structures' 2x spacing).
+Its own optional mixin config (`gameoverse_content_fixes.friendsandfoes.mixins.json`). Recheck the target when Friends
+and Foes updates.
