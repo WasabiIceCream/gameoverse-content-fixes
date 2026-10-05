@@ -309,3 +309,11 @@ left inside it. Tested on a scratch copy of the world: forced placements went fr
 generated naturally in 8,192 fresh Nether chunks (about one per 7,600 expected with Sparse Structures' 2x spacing).
 Its own optional mixin config (`gameoverse_content_fixes.friendsandfoes.mixins.json`). Recheck the target when Friends
 and Foes updates.
+
+## Field Guide's depth clears off under shaders (1.0.31)
+
+Field Guide 1.21.0 clears the main depth buffer before drawing its scan overlay (`AfterLevelOverlay`) and its
+discovery highlights (`DiscoveryOverlayRenderer`, which runs whenever something undiscovered is near). Eclipse reads
+that depth afterwards, so its volumetric clouds and fog drew over the terrain, indoors too (seen in game 2026-10-05).
+`FieldGuideShaderDepthMixin` skips both clears while an Iris shader pack is on (`IrisApi.isShaderPackInUse`); the
+overlays then sit behind walls instead of showing through them. Recheck both call sites when Field Guide updates.

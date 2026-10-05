@@ -25,6 +25,7 @@
   ],
   "client": [
     "FieldGuideCacheMixin",
+    "FieldGuideShaderDepthMixin",
     "DifficultyLevelPlateMixin",
     "ShadowPassOutlineMixin",
     "SneakyCurseDescriptionMixin",
