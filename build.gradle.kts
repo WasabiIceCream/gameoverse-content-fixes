@@ -19,7 +19,7 @@ dependencies {
     // Creatures and Beasts, for its anvil logic (CnbAnvilMixin).
     compileOnly(files("../../fabric 26.1/mods/CreaturesAndBeasts-Fabric-1.0.4+26.1.x.jar"))
     // Field Guide, for its client loot cache (FieldGuideCacheMixin).
-    compileOnly(files("../../fabric 26.1/mods/fieldguide-fabric-26.1.2-1.7.11.jar"))
+    compileOnly(files("../../fabric 26.1/mods/fieldguide-1.21.0+26.1.2-fabric.jar"))
     // Dynamic Difficulty, for its level nameplate check (DifficultyLevelPlateMixin).
     compileOnly(files("../../fabric 26.1/mods/dynamic_difficulty-fabric-1.3.3+26.1.2.jar"))
     // Bits and Balance, for its quick-harvest drops (QuickHarvestDropsMixin).

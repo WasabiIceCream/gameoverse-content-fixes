@@ -98,7 +98,7 @@ and a vanilla Desert.
 
 ## Field Guide loot cache (1.0.6)
 
-Field Guide 1.7.11 sends every entry's loot to the client on join, 100 entries per packet, and
+Field Guide (1.7.11, still in 1.21.0) sends every entry's loot to the client on join, 100 entries per packet, and
 the client re-reads its whole cache file (`fieldguide_cache/<session>/drops.nbt`, 4.2 MB here),
 merges and rewrites it on the render thread for each packet: ~9 s of every join (JFR and file
 timestamps, 2026-09-27). The client keeps the loot in memory, and asks the server for anything
@@ -182,8 +182,9 @@ its classloader but ships the file at `assets/corelib/lang/`, so every boot logg
 (`i18nLang#load: Error; file not found`). Fabric's classloader searches every mod jar, so this
 jar carries the file at the path it asks for (same one string). Upstream fixed the path in
 `sakura-ryoko/corelib` commit `4d32b511` (2026-09-22) after the 0.3.0 release; drop the file once
-AfkPlus bundles a newer Core Lib API. Field Guide stays on 1.7.11: 1.19.0 clears the main depth
-buffer after the level renders (`AfterLevelOverlay`), which breaks Eclipse (sky over terrain).
+AfkPlus bundles a newer Core Lib API. Field Guide stayed on 1.7.11 for a while: 1.19.0 cleared the
+main depth buffer after the level renders (`AfterLevelOverlay`), which broke Eclipse (sky over terrain). 1.21.0
+(2026-10-05) only clears it while a scan or discovery overlay has something to draw; the build compiles against it.
 
 ## No glowing outlines in Iris's shadow pass (1.0.14)
 
