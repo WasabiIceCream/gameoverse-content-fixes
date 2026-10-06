@@ -1,0 +1,13 @@
+{
+  "advancements.apotheosis.progression.ascent.criteria.grow_tertium": "または: テルティウムのエッセンスを育てる",
+  "advancements.apotheosis.progression.ascent.criteria.fish_treasure": "または: オウムガイの殻を釣り上げる",
+  "advancements.apotheosis.progression.summit.criteria.obtain_nether_star": "または: ネザースターを手に入れる",
+  "advancements.apotheosis.progression.pinnacle.criteria.enter_the_end": "ジ・エンドに入る",
+  "advancements.apotheosis.progression.pinnacle.criteria.master_infusion_crystal": "または: マスター注入のクリスタルを作る",
+  "advancements.apotheosis.progression.pinnacle.criteria.fish_end_crystal": "または: エンドクリスタルを釣り上げる",
+  "advancements.apotheosis.progression.ascent.criteria.kill_invader": "侵略者を倒す",
+  "advancements.apotheosis.progression.summit.criteria.kill_elite": "エリートを倒す",
+  "advancements.apotheosis.progression.summit.criteria.kill_rare_invader": "または: レア以上の侵略者を倒す",
+  "advancements.apotheosis.progression.pinnacle.criteria.kill_epic_invader": "エピック以上の侵略者を倒す",
+  "message.gameoverse_content_fixes.loot_container_protected": "このコンテナの戦利品はプレイヤーごとに別々なので、壊せません。"
+}

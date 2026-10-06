@@ -8,5 +8,6 @@
   "advancements.apotheosis.progression.ascent.criteria.kill_invader": "Slay an Invader",
   "advancements.apotheosis.progression.summit.criteria.kill_elite": "Slay an Elite",
   "advancements.apotheosis.progression.summit.criteria.kill_rare_invader": "Or: slay a Rare or better Invader",
-  "advancements.apotheosis.progression.pinnacle.criteria.kill_epic_invader": "Slay an Epic or better Invader"
+  "advancements.apotheosis.progression.pinnacle.criteria.kill_epic_invader": "Slay an Epic or better Invader",
+  "message.gameoverse_content_fixes.loot_container_protected": "Everyone gets their own loot from this container, so it can't be broken."
 }

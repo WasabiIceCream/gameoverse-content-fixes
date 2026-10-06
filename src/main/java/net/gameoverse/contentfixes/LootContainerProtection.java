@@ -22,7 +22,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
  */
 public final class LootContainerProtection {
     private static final Component MESSAGE =
-        Component.literal("Everyone gets their own loot from this container, so it can't be broken.");
+        Component.translatableWithFallback("message.gameoverse_content_fixes.loot_container_protected",
+            "Everyone gets their own loot from this container, so it can't be broken.");
 
     private LootContainerProtection() {
     }
