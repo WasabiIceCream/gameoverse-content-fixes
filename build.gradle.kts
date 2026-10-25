@@ -15,17 +15,17 @@ dependencies {
     implementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
     implementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
     // Spider Overhaul, compile-only against the exact jar the server runs.
-    compileOnly(files("../../fabric 26.1/mods/SpiderOverhaul-0.0.6-Fabric-v26.1.jar"))
+    compileOnly(files("../../fabric 26.1/mods/SpiderOverhaul-0.1.0-Fabric-v26.1.jar"))
     // Creatures and Beasts, for its anvil logic (CnbAnvilMixin).
     compileOnly(files("../../fabric 26.1/mods/CreaturesAndBeasts-Fabric-1.0.4+26.1.x.jar"))
     // Field Guide, for its client loot cache (FieldGuideCacheMixin).
-    compileOnly(files("../../fabric 26.1/mods/fieldguide-1.21.0+26.1.2-fabric.jar"))
+    compileOnly(files("../../fabric 26.1/mods/fieldguide-1.22.4+26.1.2-fabric.jar"))
     // Dynamic Difficulty, for its level nameplate check (DifficultyLevelPlateMixin).
     compileOnly(files("../../fabric 26.1/mods/dynamic_difficulty-fabric-1.3.3+26.1.2.jar"))
     // Bits and Balance, for its quick-harvest drops (QuickHarvestDropsMixin).
-    compileOnly(files("../../fabric 26.1/mods/bitsandbalance-fabric-26.1-2.4.0.jar"))
+    compileOnly(files("../../fabric 26.1/mods/bitsandbalance-fabric-26.1-2.4.3.jar"))
     // Apotheosis and Go Fish, for gems/affixes from fishing and crates (ApotheosisLootPlayerMixin, GoFishCrateMixin).
-    compileOnly(files("../../fabric 26.1/mods/apotheosis-adventure-fabric-0.4.0.jar"))
+    compileOnly(files("../../fabric 26.1/mods/apotheosis-adventure-fabric-0.5.2.jar"))
     compileOnly(files("../../fabric 26.1/mods/go-fish-1.11.0+26.1.jar"))
     compileOnly(files("../../fabric 26.1/mods/skill_tree-fabric-1.6.2+26.1.2.jar"))
     // AfkPlus, for slower AFK fishing (FishingHookAfkMixin).

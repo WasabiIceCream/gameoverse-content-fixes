@@ -41,17 +41,16 @@ public class ContentFixes implements ModInitializer {
     }
 
     /**
-     * Spider Overhaul 0.0.6 registers 11 spider variants (entity type, attributes, spawn
-     * placement, loot, model) but only adds natural spawns for 6. These four are complete
-     * mobs with no spawn entry; weights and group sizes match the six that do spawn. The
+     * Spider Overhaul registers 11 spider variants (entity type, attributes, spawn
+     * placement, loot, model) but only adds natural spawns for 7 (0.1.0 added the Sculk
+     * Spider's own Deep Dark spawn, so ours was dropped in 1.0.34). These three are complete
+     * mobs with no spawn entry; weights and group sizes match the ones that do spawn. The
      * Ocean Spider is left out on purpose: it ships with no entity model or texture.
      * Mushroom Fields are a monster-free biome players rely on, so the Mushroom Spider lives
      * in the Bioshroom Caves (giant underground mushrooms) instead.
      */
     private static void addMissingSpiderSpawns() {
         int weight = SpiderOverhaulConfig.scaleWeight(100);
-        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(Biomes.DEEP_DARK),
-            MobCategory.MONSTER, ModEntities.SCULK_SPIDER, weight, 1, 3);
         BiomeModifications.addSpawn(BiomeSelectors.tag(BiomeTags.IS_TAIGA),
             MobCategory.MONSTER, ModEntities.TAIGA_SPIDER, weight, 1, 3);
         BiomeModifications.addSpawn(BiomeSelectors.tag(BiomeTags.IS_SAVANNA),

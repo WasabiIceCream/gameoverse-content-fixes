@@ -6,15 +6,15 @@ datapack live in `../gameoverse-obtainability-fixes/`. Wholly original, MIT.
 
 ## Spider spawns
 
-Spider Overhaul 0.0.6 registers 11 spider variants (entity, attributes, spawn
-placement, loot, model) but only adds natural spawns for 6. This adds the other
-four through Fabric API's `BiomeModifications.addSpawn`, using the same weight
-(`SpiderOverhaulConfig.scaleWeight(100)`) and group size (1-3) as the six that do
-spawn:
+Spider Overhaul registers 11 spider variants (entity, attributes, spawn
+placement, loot, model) but 0.0.6 only added natural spawns for 6. This adds three
+more through Fabric API's `BiomeModifications.addSpawn`, using the same weight
+(`SpiderOverhaulConfig.scaleWeight(100)`) and group size (1-3) as the ones that do
+spawn. Until 1.0.34 it also added the Sculk Spider (Deep Dark); Spider Overhaul 0.1.0
+spawns that one itself, so ours was dropped to avoid a doubled weight.
 
 | Spider | Biomes |
 |---|---|
-| Sculk Spider | Deep Dark |
 | Taiga Spider | `#minecraft:is_taiga` |
 | Savanna Spider | `#minecraft:is_savanna` |
 | Mushroom Spider | Regions Unexplored Bioshroom Caves (Mushroom Fields stay monster-free) |
